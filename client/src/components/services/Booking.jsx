@@ -81,7 +81,7 @@ align-items: center;
 padding: 1rem;
 position: relative;
 `
-const Booking = ({img,title,price}) => {
+const Booking = ({img,title,price,priceNumber,_id}) => {
     const [date,setDate] = useState(null);
     const [picker,setShowPicker] = useState(false)
     const handleClick = (e)=>{
@@ -103,12 +103,16 @@ const Booking = ({img,title,price}) => {
         </ImageContainer>
           <DescriptionContainer>
             <Price> {price} </Price>
-            <ControlsContainer>
+           {picker? <ControlsContainer>
+                <Control onClick={()=> setShowPicker(false)} >Cancel booking</Control>
+            </ControlsContainer>:
+             <ControlsContainer>
                 <Control onClick={()=> setShowPicker(true)} >book this service</Control>
             </ControlsContainer>
+            }
         </DescriptionContainer>
-    </Container>
-       {picker && <DateRange  setDate={setDate} setShowPicker ={setShowPicker} />}
+       </Container>
+         {picker && <DateRange id ={_id} amount={priceNumber}  setDate={setDate} setShowPicker ={setShowPicker} />}
     </Wrapper>
   )
 }

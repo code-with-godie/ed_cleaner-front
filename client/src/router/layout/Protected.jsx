@@ -6,6 +6,7 @@ const Container = styled.main`
     height: 100vh;
 `;
 const Protected = () => {
+    
     const  user  = useSelector(state => state.user.currentUser);
 
     return <Container>{user ? <Outlet /> : <Navigate to='/auth/login' />}</Container>;

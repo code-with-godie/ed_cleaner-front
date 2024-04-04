@@ -120,7 +120,7 @@ const Cart = () => {
                     {cart.cartItems.length === 0 ? (
                         <EmptyCartContainer>
                             <EmptyCartTitle>
-                                your amazon cart is empty.
+                                your cart is empty.
                             </EmptyCartTitle>
                             <EmptyCartDescription>
                                 your shopping cart lives to serve.Give it

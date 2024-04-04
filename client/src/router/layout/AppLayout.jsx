@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import {Outlet} from 'react-router-dom'
 import Footer from '../../components/footer/Footer';
@@ -9,7 +9,9 @@ const Container = styled.main`
     overflow: auto;
 `
 const AppLayout = () => {
-
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Container>
       <Header/>

@@ -104,12 +104,14 @@ const Button = styled.button`
 const Checkout = () => {
     const [paymentType,setPayment] = useState('card');
     const [index,setIndex] = useState(0);
+    const [amount,setAmount] = useState(0);
     const navigate = useNavigate();
     const location = useLocation();
     const [address,setAddress] = useState(null);
 
     useEffect(()=>{
-        location?.state && setAddress(location.state)
+        location?.state && setAddress(location.state?.user)
+        location?.state && setAmount(location.state?.amount)
     },[location])
     // const cartItems = useSelector(state => state.cart.cartItems);
     // const token = useSelector(state => state.user.token);
@@ -193,7 +195,7 @@ const Checkout = () => {
         <ButtonWrapper>
              <Button onClick={()=> navigate('/address')} > <KeyboardArrowLeft/> prev</Button>
              {paymentType  === 'card'?
-             <PayWithCardButton>
+             <PayWithCardButton amount ={amount} >
                  <Button>  pay with {paymentType} </Button>
              </PayWithCardButton>:
              <Button onClick={pay} >  pay with {paymentType} </Button>

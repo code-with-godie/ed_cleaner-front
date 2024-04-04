@@ -94,7 +94,7 @@ align-items: center;
 padding: 1rem;
 position: relative;
 `
-const Service = ({title,price,img,description,_id}) => {
+const Service = ({title,price,img,description,_id,priceNumber}) => {
     const [booked,setBooked] = useState(false);
      const [date,setDate] = useState(null);
      const [showModel,setShowModel] = useState(false);
@@ -119,7 +119,7 @@ const Service = ({title,price,img,description,_id}) => {
             <Title> {title} </Title>
             <Description> {description} </Description>
             <Price className='tag' >At a very affordable price</Price>
-            <Price> {price} </Price>
+            <Price> {priceNumber} {price} </Price>
             <ControlsContainer>
                 <Control onClick={handleClick} className={(date || booked) && 'booked'} > {date ? `booked this service on ${date?.toString().substring(0,16)} `:'book now'} </Control>
                 {/* {
@@ -131,7 +131,7 @@ const Service = ({title,price,img,description,_id}) => {
         {
             showModel &&
         <Model center  close={setShowModel} bg=' #000000a1' >
-            <Booking title ={title}  price = {price} img = {img} description ={description} _id ={_id} />
+            <Booking title ={title} priceNumber={priceNumber}  price = {price} img = {img} description ={description} _id ={_id} />
         </Model>
         }
     </Container>

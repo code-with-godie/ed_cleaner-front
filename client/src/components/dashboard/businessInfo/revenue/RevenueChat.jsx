@@ -12,51 +12,51 @@ import {
 const data = [
   {
     name: "Sun",
-    sugar: 4000,
-    rice: 2400,
-    oil: 2400,
+    zep: 4000,
+    persil: 2400,
+    fendona: 2400,
   },
   {
     name: "Mon",
-    sugar: 3000,
-    rice: 1398,
-    oil: 2210,
+    zep: 3000,
+    persil: 1398,
+    fendona: 2210,
   },
   {
     name: "Tue",
-    sugar: 2000,
-    rice: 9800,
-    oil: 2290,
+    zep: 2000,
+    persil: 9800,
+    fendona: 2290,
   },
   {
     name: "Wed",
-    sugar: 2780,
-    rice: 3908,
-    oil: 2000,
+    zep: 2780,
+    persil: 3908,
+    fendona: 2000,
   },
   {
     name: "Thu",
-    sugar: 1890,
-    rice: 4800,
-    oil: 2181,
+    zep: 1890,
+    persil: 4800,
+    fendona: 2181,
   },
   {
     name: "Fri",
-    sugar: 2390,
-    rice: 3800,
-    oil: 2500,
+    zep: 2390,
+    persil: 3800,
+    fendona: 2500,
   },
   {
     name: "Sat",
-    sugar: 3490,
-    rice: 4300,
-    oil: 2100,
+    zep: 3490,
+    persil: 4300,
+    fendona: 2100,
   },
   {
     name: "SUN",
-    sugar: 2480,
-    rice: 5500,
-    oil: 1000,
+    zep: 2480,
+    persil: 5500,
+    fendona: 1000,
   },
 ];
 const RevenueChat = () => {
@@ -78,21 +78,21 @@ const RevenueChat = () => {
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="sugar"
+              dataKey="zep"
               stackId="1"
               stroke="#8884d8"
               fill="#8884d8"
             />
             <Area
               type="monotone"
-              dataKey="rice"
+              dataKey="persil"
               stackId="1"
               stroke="#82ca9d"
               fill="#82ca9d"
             />
             <Area
               type="monotone"
-              dataKey="oil"
+              dataKey="fendona"
               stackId="1"
               stroke="#ffc658"
               fill="#ffc658"

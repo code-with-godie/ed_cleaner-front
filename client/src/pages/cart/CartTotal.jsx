@@ -3,6 +3,7 @@ import React  from 'react';
 import {useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import PayWithCardButton from '../checkout/PayWithCardButton';
 
 const Container = styled.div`
     display: flex;
@@ -58,7 +59,11 @@ const CartTotal = () => {
                 <Checkbox size='small' />
                 <Description>This order contains a gift</Description>{' '}
             </Bottom>
-            <Button onClick={gotoCheckout}>Proceed to checkout</Button>
+            <Button>
+                <PayWithCardButton billingAddress={true} shippingAddress={true} >
+                    Proceed to checkout
+                </PayWithCardButton>
+                </Button>
         </Container>
     );
 };

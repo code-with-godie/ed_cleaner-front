@@ -8,28 +8,29 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from '../../../api/useFetch'
 import LoadingAnimation from '../../../components/loading/LoadingAnimation'
+import { Avatar } from "@mui/material";
 // import Add from "../../components/add/Add";
 
 const columns = [
   {
     field: "profilePic",
     headerName: "Avatar",
-    width: 100,
+    width: 70,
     renderCell: (params) => {
-      return <img src={params.row.img || "/noavatar.png"} alt="" />;
+      return <Avatar src={params.row.img} alt={params.row.fisrtName} />;
     },
   },
   {
     field: "firstName",
     type: "string",
     headerName: "First name",
-    width: 150,
+    width: 100,
   },
   {
     field: "lastName",
     type: "string",
     headerName: "Last name",
-    width: 150,
+    width: 100,
   },
   {
     field: "email",
@@ -41,7 +42,7 @@ const columns = [
     field: "phone",
     type: "string",
     headerName: "Phone",
-    width: 200,
+    width: 150,
   },
   {
     field: "createdAt",
@@ -75,12 +76,7 @@ const Users = () => {
   return (
     <div className="users">
       <div className="info">
-        <h1>Ojay Employees</h1>
-        {
-          currentUser?.role === 'admin' ?
-        <button onClick={() => setOpen(true)}>Add New Employee</button>:
-        <button onClick={() => navigate('/users/1')}>Update my details</button>
-        }
+        <h1>Ed_cleaners Employees</h1>
       </div>
       <DataTable  slug="users" columns={columns} rows={users} />
       {open && <Add slug="user" columns={columns} setOpen={setOpen} />}

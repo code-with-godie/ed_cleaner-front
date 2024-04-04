@@ -20,7 +20,7 @@ const columns = [
     field: "title",
     type: "string",
     headerName: "Title",
-    width: 100,
+    width: 200,
   },
   {
     field: "category",
@@ -42,7 +42,7 @@ const columns = [
   {
     field: "description",
     headerName: "product Description",
-    width: 200,
+    width: 250,
   },
   // {
   //   field: "createdAt",
@@ -50,12 +50,12 @@ const columns = [
   //   width: 200,
   //   type: "string",
   // },
-  {
-    field: "inStock",
-    headerName: "In Stock",
-    width: 150,
-    type: "boolean",
-  },
+  // {
+  //   field: "inStock",
+  //   headerName: "In Stock",
+  //   width: 150,
+  //   type: "boolean",
+  // },
 ];
 
 const Products = () => {

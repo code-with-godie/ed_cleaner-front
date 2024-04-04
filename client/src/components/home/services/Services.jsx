@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Service from './Service';
-import service1 from '../../../assets/sercive1.jpg'
-import service2 from '../../../assets/service2.jpg'
-import service3 from '../../../assets/service3.jpg'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import {useFetch} from '../../../api/useFetch'
+import LoadingAnimation from '../../../components/loading/LoadingAnimation'
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -51,6 +50,18 @@ padding:.5rem;
   }
 `
 const Services = () => {
+  const [services,setServices] = useState([]);
+  const {data,loading,error} = useFetch('/services');
+  useEffect(()=>{
+    data && setServices(data.services)
+  },[data])
+
+  if(loading){
+    return <LoadingAnimation/>
+  }
+  if(error){
+    return <h1>something went wrong</h1>
+  }
   const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -87,20 +98,9 @@ const Services = () => {
           keyBoardControl={true}
           removeArrowOnDeviceType={["tablet", "mobile"]}
         responsive={responsive}>
-          <Service image={service1} title='General house cleaning' />
-          <Service image={service2} title='Car interior cleaning' />
-          <Service image={service3} title='Sofas/ coaches cleaning' />
-          <Service image={service1} title='Carpet cleaning' />
-          <Service image={service1} title='Mattress cleaning ' />
-          <Service image={service1} title='General house cleaning' />
-          <Service image={service1} title='Deep cleaning' />
-          <Service image={service1} title='Rodent Control' />
-          <Service image={service1} title='Spider Control' />
-          <Service image={service1} title='Wasp and Bee Control' />
-          <Service image={service1} title='Ant Control' />
-          <Service image={service1} title='Mosquito Control' />
-          <Service image={service1} title='Cockroach Control' />
-          <Service image={service1} title='Bedbug Control' />
+          {
+            services.map(item => <Service {...item} key= {item._id} /> )
+          }
         </Carousel>
       </SwiperContainer>
     </Container>

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import icon1 from '../../../assets/icon-1.png'
-import service from '../../../assets/general.jpg'
 import { useNavigate } from 'react-router-dom';
 const Container = styled.div`
     display: flex;
@@ -31,10 +30,10 @@ const Image = styled.img`
 `
 const ImageView = styled.img`
 width: 100%;
-height: auto;
+height: 300px;
 object-fit: cover;
 `
-const Service = ({title,image}) => {
+const Service = ({title,img}) => {
   const navigate = useNavigate();
   return (
     <Container onClick={()=> navigate('/services')} >
@@ -42,7 +41,7 @@ const Service = ({title,image}) => {
         <Image src={icon1} />
        </ImageContainer>
        <Title> {title} </Title>
-       <ImageView src={image} />
+       <ImageView src={img} />
     </Container>
   )
 }

@@ -1,9 +1,10 @@
 import React, { useEffect, useState }  from 'react'
 import styled from 'styled-components';
 import {  TextField } from '@mui/material'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
+import PayWithCard from '../../pages/checkout/PayWithCardButton'
 // import ContinueControls from './ContinueControls';
 const Container = styled.div`
     padding:.5rem;
@@ -97,12 +98,22 @@ const Adrress = ({payment,setPayment}) => {
   const navigate = useNavigate();
   const loggedInUser = useSelector(state => state.user.currentUser)
   const [disabled,setDisabled] = useState(true);
+  const location = useLocation();
+  const [amount,setAmount] = useState(0);
+  const [date,setDate] = useState(null);
+  const [serviceID,setServiceID] = useState(null);
   const [user,setUser ] = useState({firstName:loggedInUser?.firstName,lastName:loggedInUser?.lastName,phone:loggedInUser?.phone,addPhone:null,city:'',region:''})
   const handleChange = (e)=>{
     const name = e.target.name;
     const value = e.target.value;
     setUser(prev => ({...prev,[name]:value}))
   }
+   useEffect(()=>{
+    // console.log(location);
+        location?.state && setAmount(location.state?.amount)
+        location?.state && setServiceID(location.state?.id)
+        location?.state && setDate(location.state?.date)
+    },[location])
 
   useEffect(()=>{
     if(user.firstName && user.lastName && user.city && user.phone && user.region){
@@ -112,6 +123,9 @@ const Adrress = ({payment,setPayment}) => {
       setDisabled(true);
     }
   },[user])
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container>
@@ -189,7 +203,11 @@ const Adrress = ({payment,setPayment}) => {
         </Form>
           <ButtonWrapper>
              <Button onClick={()=> navigate('/cart')} > <KeyboardArrowLeft/> prev</Button>
-             <Button disabled ={disabled} onClick={()=> navigate("/checkout",{state:user})} >  next <KeyboardArrowRight/> </Button>
+             <Button disabled ={disabled}>
+              <PayWithCard date ={date} serviceID ={serviceID}  amount={amount} service {...user} >
+                next
+                </PayWithCard> 
+               <KeyboardArrowRight/> </Button>
              </ButtonWrapper>
         {/* <ContinueControls payment={payment} setPayment = {setPayment}  /> */}
     </Container>

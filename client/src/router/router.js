@@ -17,8 +17,13 @@ import Users from '../pages/dashbord/users/Users';
 import Products from '../pages/dashbord/products/Products';
 import Success from '../pages/success/Success';
 import Fail from '../pages/fail/Fail';
-import Orders from '../pages/order/Orders';
 import Adrress from '../pages/address/Adrress';
+import Orders from '../pages/orders/Orders';
+import Receipt from '../pages/dashbord/receipt/Receipt';
+import Profile from '../pages/profile/Profile';
+import AdminServices from '../pages/dashbord/services/Services'
+import Bookings from '../pages/bookings/Bookings';
+import AdminBookings from '../pages/dashbord/adminBookings/AdminBookings';
 export const router = createBrowserRouter([
     {
         path:'/',
@@ -29,8 +34,16 @@ export const router = createBrowserRouter([
                 element:<Home/>
             },
             {
+                path:'/bookings',
+                element:<Bookings/>
+            },
+            {
                 path:'/success',
                 element:<Success/>
+            },
+             {
+                path:'/receipt',
+                element:<Receipt/>
             },
             {
                 path:'/failed',
@@ -92,11 +105,19 @@ export const router = createBrowserRouter([
                 children:[
                      {
                 path:'/checkout',
+                element:<Orders/>
+            },
+                     {
+                path:'/checkout',
                 element:<Checkout/>
             },
               {
                 path:'/orders',
                 element:<Orders/>
+            },
+              {
+                path:'/profile',
+                element:<Profile/>
             },
                 ]
             },
@@ -110,12 +131,28 @@ export const router = createBrowserRouter([
                         element:<HomeDashboard/>
                     },
                     {
+                        path:'/dashboard/profile',
+                        element:<Profile/>
+                    },
+                    {
                         path:'/dashboard/users',
                         element:<Users/>
                     },
                     {
+                        path:'/dashboard/services',
+                        element:<AdminServices/>
+                    },
+                    {
                         path:'/dashboard/products',
                         element:<Products/>
+                    },
+                    {
+                        path:'/dashboard/orders',
+                        element:<Orders/>
+                    },
+                    {
+                        path:'/dashboard/bookings',
+                        element:<AdminBookings/>
                     },
                 ]
             }

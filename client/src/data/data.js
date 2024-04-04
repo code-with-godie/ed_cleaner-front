@@ -11,48 +11,66 @@ import product5 from '../assets/posts/5.jpg';
 import product7 from '../assets/posts/7.jpg';
 import product6 from '../assets/posts/6.jpg';
 import service from '../assets/service.jpg'
+import general from '../assets/genClean.jpg'
+import car from '../assets/car.jpeg'
+import matress from '../assets/matress.jpeg'
+import carpet from '../assets/carpet.jpeg'
+import house from '../assets/house.jpeg'
+import coach from '../assets/coach.jpg'
+import order from '../assets/order.svg'
+import home from '../assets/home.svg'
+import user from '../assets/user.svg'
+import product from '../assets/product.svg'
+import setting from '../assets/order.svg'
+import backup from '../assets/backup.svg'
 export const services = [
   {
     id:1,
     title:'Sofas/Coach Cleaning',
     description:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit quis itaque tempora vero eaque, suscipit similique? Assumenda facere architecto nam, molestias eligendi dolorum. Laudantium numquam blanditiis, consequatur quia neque consequuntur!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, omnis alias earum perspiciatis iste nesciunt quod libero autem, sit quis recusandae veniam ipsa eveniet! Quia alias mollitia quidem consectetur facere.',
     price:' 200 Ksh. per coach/sofa',
-    img:service
+    priceNumber:200,
+    img:coach
   },
   {
     id:2,
     title:'Carpet cleaning',
     description:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit quis itaque tempora vero eaque, suscipit similique? Assumenda facere architecto nam, molestias eligendi dolorum. Laudantium numquam blanditiis, consequatur quia neque consequuntur!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, omnis alias earum perspiciatis iste nesciunt quod libero autem, sit quis recusandae veniam ipsa eveniet! Quia alias mollitia quidem consectetur facere.',
     price:' 500 Ksh. per carpet',
-    img:service
+    priceNumber:500,
+    img:carpet
   },
   {
     id:1,
     title:'Mattress cleaning ',
     description:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit quis itaque tempora vero eaque, suscipit similique? Assumenda facere architecto nam, molestias eligendi dolorum. Laudantium numquam blanditiis, consequatur quia neque consequuntur!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, omnis alias earum perspiciatis iste nesciunt quod libero autem, sit quis recusandae veniam ipsa eveniet! Quia alias mollitia quidem consectetur facere.',
     price:' 250 Ksh. per matters',
-    img:service
+    priceNumber:250,
+    img:matress
   },
   {
     id:1,
     title:'Car interior cleaning',
     description:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit quis itaque tempora vero eaque, suscipit similique? Assumenda facere architecto nam, molestias eligendi dolorum. Laudantium numquam blanditiis, consequatur quia neque consequuntur!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, omnis alias earum perspiciatis iste nesciunt quod libero autem, sit quis recusandae veniam ipsa eveniet! Quia alias mollitia quidem consectetur facere.',
     price:' 300 Ksh. per car',
-    img:service
+    priceNumber:300,
+    img:car
   },
   {
     id:1,
     title:'General house cleaning',
     description:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit quis itaque tempora vero eaque, suscipit similique? Assumenda facere architecto nam, molestias eligendi dolorum. Laudantium numquam blanditiis, consequatur quia neque consequuntur!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, omnis alias earum perspiciatis iste nesciunt quod libero autem, sit quis recusandae veniam ipsa eveniet! Quia alias mollitia quidem consectetur facere.',
     price:' 250 Ksh. per room',
-    img:service
+    priceNumber:250,
+    img:general
   },
   {
     id:1,
     title:'Thorough house deep cleaning',
     description:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit quis itaque tempora vero eaque, suscipit similique? Assumenda facere architecto nam, molestias eligendi dolorum. Laudantium numquam blanditiis, consequatur quia neque consequuntur!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, omnis alias earum perspiciatis iste nesciunt quod libero autem, sit quis recusandae veniam ipsa eveniet! Quia alias mollitia quidem consectetur facere.',
     price:' 500 Ksh. per room',
-    img:service
+    priceNumber:500,
+    img:house
   }
 ]
 export const slider = [
@@ -155,13 +173,13 @@ export const menu = [
         id: 1,
         title: "Homepage",
         url: "/dashboard",
-        icon: "home.svg",
+        icon:home,
       },
       {
         id: 2,
         title: "Profile",
-        url: "/dashboard/users/1",
-        icon: "user.svg",
+        url: "/dashboard/profile",
+        icon: user,
       },
     ],
   },
@@ -173,94 +191,34 @@ export const menu = [
         id: 1,
         title: "Users",
         url: "/dashboard/users",
-        icon: "user.svg",
+        icon: user,
       },
       {
         id: 2,
         title: "Products",
         url: "/dashboard/products",
-        icon: "product.svg",
+        icon: product,
       },
       {
         id: 3,
         title: "Orders",
         url: "/dashboard/orders",
-        icon: "order.svg",
+        icon: order,
       },
       {
         id: 4,
-        title: "Posts",
-        url: "dashboard/posts",
-        icon: "post2.svg",
+        title: "Services",
+        url: "/dashboard/services",
+        icon: order,
       },
+      {
+        id: 1234,
+        title: "Bookings",
+        url: "/dashboard/bookings",
+        icon: backup,
+      }
     ],
-  },
-  {
-    id: 3,
-    title: "general",
-    listItems: [
-      {
-        id: 1,
-        title: "Elements",
-        url: "/admin/dashboard",
-        icon: "element.svg",
-      },
-      {
-        id: 2,
-        title: "Notes",
-        url: "/admin/dashboard",
-        icon: "note.svg",
-      },
-      {
-        id: 3,
-        title: "Forms",
-        url: "/admin/dashboard",
-        icon: "form.svg",
-      },
-      {
-        id: 4,
-        title: "Calendar",
-        url: "/admin/dashboard",
-        icon: "calendar.svg",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Maintenance",
-    listItems: [
-      {
-        id: 1,
-        title: "Settings",
-        url: "/admin/dashboard",
-        icon: "setting.svg",
-      },
-      {
-        id: 2,
-        title: "Backups",
-        url: "/admin/dashboard",
-        icon: "backup.svg",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "analytics",
-    listItems: [
-      {
-        id: 1,
-        title: "Charts",
-        url: "/admin/dashboard",
-        icon: "chart.svg",
-      },
-      {
-        id: 2,
-        title: "Logs",
-        url: "/admin/dashboard",
-        icon: "log.svg",
-      },
-    ],
-  },
+  }
 ];
 
 export const topDealUsers = [

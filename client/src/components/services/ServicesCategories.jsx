@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Service from './Service';
-import { services } from '../../data/data';
+import { useFetch } from '../../api/useFetch';
+import LoadingAnimation from '../loading/LoadingAnimation';
+// import { services } from '../../data/data';
 
 const Container = styled.div`
     display: flex;
@@ -9,6 +11,18 @@ const Container = styled.div`
     gap:.5rem;
 `
 const ServicesCategories = () => {
+  const [services,setServices] = useState([]);
+  const {data,loading,error} = useFetch('/services');
+
+  useEffect(()=>{
+    data && setServices(data.services)
+  },[data])
+  if(loading){
+    return <LoadingAnimation/>
+  }
+  if(error){
+    return <h1>something went wrong</h1>
+  }
   return (
     <Container>
       {

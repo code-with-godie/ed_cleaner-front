@@ -1,6 +1,7 @@
 import { FacebookRounded, Instagram, KeyboardArrowRight, LinkedIn, LocationOn, Phone, SmsSharp, Twitter } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 const Container = styled.footer`
   background-color: #0A1026;
@@ -137,7 +138,7 @@ const Footer = () => {
           <Label>info@gmail.com</Label>
         </Control>
         <LinkWrapper>
-        <IconButton className='btn'>
+        {/* <IconButton className='btn'>
              <FacebookRounded className='icon' />
 
         </IconButton>
@@ -152,7 +153,30 @@ const Footer = () => {
         <IconButton className='btn' >
               <LinkedIn className='icon' />
 
-        </IconButton>
+        </IconButton> */}
+          <Link to="https://www.facebook.com/profile.php?id=100087198264247">
+            <IconButton className='btn'>
+                    <FacebookRounded className='icon' />
+
+            </IconButton>
+                    </Link>
+                    <Link to="https://www.instagram.com/nairobi_fumigation?igsh=MWEzeW90cWp2N2VhcA==">
+                      <IconButton className='btn'>
+                    <Instagram className='icon' />
+
+                      </IconButton>
+                    </Link>
+                    <Link to="https://twitter.com/Eduz01?t=rFKE65oSUBlxO9hIDZQCsw&s=09">
+                      <IconButton className='btn'>
+
+                    <Twitter className='icon' />
+                      </IconButton>
+                    </Link>
+                    <Link to="https://www.linkedin.com/in/ed-pest-cleaners-039788283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                      <IconButton className='btn'>
+                    <LinkedIn className='icon' />
+                      </IconButton>
+                    </Link>
         </LinkWrapper>
         </Column>
         <Column>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import {FacebookRounded, Home, Instagram, LinkedIn, Logout, Person, Phone, SearchRounded, ShoppingCart, SmsOutlined, Twitter } from '@mui/icons-material'
+import {Bookmark, FacebookRounded, Home, Instagram, LinkedIn, Logout, Person, Phone, SearchRounded, ShoppingCart, SmsOutlined, Twitter } from '@mui/icons-material'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Avatar, Badge, IconButton} from '@mui/material';
@@ -174,10 +174,18 @@ const Header = () => {
                     </Control>
                 </TopItemWrapper>
                 <TopItemWrapper>
+                    <Link to="https://www.facebook.com/profile.php?id=100087198264247">
                     <FacebookRounded className='icon' />
+                    </Link>
+                    <Link to="https://www.instagram.com/nairobi_fumigation?igsh=MWEzeW90cWp2N2VhcA==">
                     <Instagram className='icon' />
+                    </Link>
+                    <Link to="https://twitter.com/Eduz01?t=rFKE65oSUBlxO9hIDZQCsw&s=09">
                     <Twitter className='icon' />
+                    </Link>
+                    <Link to="https://www.linkedin.com/in/ed-pest-cleaners-039788283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
                     <LinkedIn className='icon' />
+                    </Link>
                 </TopItemWrapper>
             </TopWrapper>
         </Top>
@@ -185,8 +193,15 @@ const Header = () => {
             <BottomWrapper>
                 <BottomRight>
                     <Link className='link' to='/' > <Home/> home</Link>
-                    <Link className='link' to='/about' > <Person/> about</Link>
+                    {/* <Link className='link' to='/about' > <Person/> about</Link> */}
                     <Link className='link' to='/services' > <SearchRounded/> service</Link>
+                     {
+            user &&
+                    <Link className='link' to='/orders' > <Phone/> my orders</Link>
+         }
+         {
+            user && <Link className='link' to='/bookings' > <Bookmark/> my bookings</Link>
+         }
                     <Link className='link' >
                       { !loading &&  <Select onChange={(e)=> navigate('/products',{state:{slug:e.target.value}})} >
                         <Option value='all' onClick={(e)=> navigate('/products',{state:{slug:'all'}})}  > All </Option>
@@ -196,7 +211,6 @@ const Header = () => {
                             
                         </Select>}
          </Link>
-                    <Link className='link' to='/contacts' > <Phone/> contact</Link>
                 </BottomRight>
                 <BottomWLeft>
                       {
@@ -207,8 +221,8 @@ const Header = () => {
                         user ? <>
                         <Quote className='small'  onClick={()=> navigate('/cart')} > <Badge className='badge' badgeContent ={<Count>{amount} </Count>} > <ShoppingCart/> </Badge> cart </Quote>
                         <Quote className='small' onClick={()=> setLogout(true) } > <Logout/> logout</Quote>
-                        <IconButton>
-                            <Avatar/>
+                        <IconButton onClick={()=> navigate('/profile')} >
+                            <Avatar alt={user.name} src={user.profilePic} />
                         </IconButton>
                         </>:
                         <>

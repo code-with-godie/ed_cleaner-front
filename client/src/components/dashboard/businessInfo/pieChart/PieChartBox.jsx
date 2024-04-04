@@ -3,17 +3,17 @@ import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import "./pieChartBox.scss";
 
 const data = [
-  { name: "milk", value: 400, color: "#0088FE" },
-  { name: "tomato", value: 300, color: "#00C49F" },
-  { name: "beans", value: 300, color: "#FFBB28" },
-  { name: "maize flour", value: 200, color: "#FF8042" },
-  { name: "fat", value: 0, color: "#42ffd9" },
+  { name: "Persil", value: 400, color: "#0088FE" },
+  { name: "Bedlam", value: 300, color: "#00C49F" },
+  { name: "Neocidol", value: 300, color: "#FFBB28" },
+  { name: "fendona", value: 200, color: "#FF8042" },
+  { name: "ZEb", value: 300, color: "#42ffd9" },
 ];
 
 export const PieChartBox = () => {
   return (
     <div className="pieChartBox">
-      <h1>slow selling items</h1>
+      <h1>fast selling items</h1>
       <div className="chart">
         <ResponsiveContainer width="99%" height={300}>
           <PieChart>

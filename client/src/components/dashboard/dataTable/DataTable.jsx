@@ -14,26 +14,38 @@ const DataTable = (props) => {
   const show = location.pathname.startsWith('/products')
   const currentUser = useSelector(state => state.user.currentUser);
 
-  const handleDelete = (id) => {
-  };
+  const update = product =>{
+    props.setProduct(product)
+    props.setOpen(true)
+    // props.setEdit(true)
+  }
 
   const actionColumn= {
     field: "action",
-    headerName: "Action",
+    headerName: "booking controllers",
     width: 200,
     renderCell: (params) => {
       return (
         <div className="action">
           {
-            currentUser?._id === params.row._id  || show || currentUser?.role === 'admin'?
-          <Link to={`/${props.slug}/${params.row._id}`}>
+            !props.hide &&
+          <div onClick={()=> update(params.row)} >
             <img src={view} alt="" />
-          </Link>: <button>not allowed</button>
+          </div>
            }
           { 
-            (currentUser?.role === 'admin'  ||  currentUser?._id === params.row._id   || show) &&
-          <div className="delete" onClick={() => handleDelete(params.row._id)}>
+           props.hide ? 
+          <div className="delete">
+            <button disabled={params.row.status === 'completed'} onClick={() => props.handleComplete(params.row._id)} className={`${params.row.status} btn`} > {params.row.status === 'completed'?'already completed':'complete booking'} </button>
+          </div>:
+          <div className="delete" onClick={() => props.handleDelete(params.row._id)}>
             <img src={deleteIcon} alt="" />
+          </div>
+          }
+          {
+            props.cancel &&
+             <div className="delete">
+            <button disabled={params.row.status === 'completed'} onClick={() => props.handleComplete(params.row._id)} className={`${params.row.status} btn`} > {params.row.status === 'pending'?'cancel booking':'completed'} </button>
           </div>
           }
         </div>
